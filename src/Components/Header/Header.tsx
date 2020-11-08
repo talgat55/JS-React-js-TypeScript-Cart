@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Row, Container, Col} from 'react-bootstrap'
 import CartImg from '../../static/cart.svg'
 
-const Header = () => {
+const Header:React.FC = () => {
 
     return (
         <HeaderComponent className="header">
