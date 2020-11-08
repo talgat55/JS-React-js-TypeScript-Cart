@@ -1,25 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Row, Container, Col} from 'react-bootstrap'
+// import {Row, Container, Col} from 'react-bootstrap'
+
+import {Container, Grid} from 'semantic-ui-react';
 import CartImg from '../../static/cart.svg'
 
-const Header:React.FC = () => {
+const Header: React.FC = () => {
 
     return (
         <HeaderComponent className="header">
             <Container>
-                <Row>
-                    <Col xs={12} lg={8}>
+                <Grid columns={3}>
+                    <Grid.Row>
+                        <Grid.Column>
 
-                    </Col>
-                    <Col className="d-flex header_cart" xs={12} lg={4}>
-                        cart
-                        {CartImg}
-                        <span className="header_cart-counter">
+                        </Grid.Column>
+                        <Grid.Column className="d-flex header_cart">
+                            cart
+                            {CartImg}
+                            <span className="header_cart-counter">
                             3
                         </span>
-                    </Col>
-                </Row>
+                        </Grid.Column>
+                        <Grid.Column>
+
+                        </Grid.Column>
+
+                    </Grid.Row>
+                </Grid>
             </Container>
         </HeaderComponent>
     )
