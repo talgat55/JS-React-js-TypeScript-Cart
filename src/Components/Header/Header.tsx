@@ -20,7 +20,7 @@ const Header: React.FC = () => {
                             </a>
                         </Grid.Column>
                         <Grid.Column/>
-                        <Grid.Column>
+                        <Grid.Column className=" middle aligned">
                             <div className="header_cart">
                                 cart
                                 <img src={CartImg} alt="Cart"/>
