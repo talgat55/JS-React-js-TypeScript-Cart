@@ -42,7 +42,7 @@ const HeaderComponent = styled.header`
   &.header{
     padding: 12px 0;
     position: relative;
-    
+     background: #fff;
     &:after{
       content: "";
       display: block;
