@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "../Components/Header/Header";
 import styled from "styled-components";
 import CartItems from '../Components/Cart/CartItems';
+import Content from "../Components/Content/Content";
 
 const Main: React.FC = () => {
 
@@ -10,7 +11,7 @@ const Main: React.FC = () => {
             <Header/>
             <ContentComponent className="content">
                 <div className="content_first">
-
+                    <Content/>
                 </div>
                 <div className="content_second">
                     <CartItems/>
