@@ -62,13 +62,18 @@ const BreadscrumbsComponent = styled.div`
         color: #979797;
         padding: 0 20px;
       }
-      &:first-child{
-        &:before{
-          display: none;
-        }
-        a{
+      &.active{
+       a{
          color: #5A1094;
         }
+      }
+      &:first-child{
+        a{
+          padding-left: 0;
+        }
+        &:before{
+          display: none;
+        } 
       }
      
     }

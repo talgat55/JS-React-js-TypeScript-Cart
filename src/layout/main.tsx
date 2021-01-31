@@ -2,7 +2,8 @@ import React from 'react';
 import Header from "../Components/Header/Header";
 import styled from "styled-components";
 import CartItems from '../Components/Cart/CartItems';
-import Content from "../Components/Content/Content";
+import Shipping from "../pages/Shipping";
+import { Route } from 'react-router-dom';
 
 const Main: React.FC = () => {
 
@@ -11,7 +12,7 @@ const Main: React.FC = () => {
             <Header/>
             <ContentComponent className="content">
                 <div className="content_first">
-                    <Content/>
+                    <Route exact path="/" component={Shipping}/>
                 </div>
                 <div className="content_second">
                     <CartItems/>
