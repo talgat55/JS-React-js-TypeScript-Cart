@@ -1,6 +1,7 @@
 import React, {memo} from 'react';
 import Content from "../Components/Content/Content";
 import {Formik, Field, FormikProps, FieldProps, FormikHelpers} from "formik";
+import styled from "styled-components";
 
 interface FormValues {
     full_name: string;
@@ -61,10 +62,12 @@ const Shipping: React.FC = () => {
                       isSubmitting,
                       /* and other goodies */
                   }) => (
-                    <form
+                    <ShippingComponent
+                        id="form-shipping"
                         onSubmit={handleSubmit}
                     >
                         <div className="form-group">
+                            <label>Recipient</label>
                             <Field name="full-name">
                                 {({form}: FieldProps<any>) => {
                                     return (
@@ -82,7 +85,7 @@ const Shipping: React.FC = () => {
                                 }}
                             </Field>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group  day-time_field">
                             <Field name="daytime">
                                 {({form}: FieldProps<any>) => {
                                     return (
@@ -99,8 +102,13 @@ const Shipping: React.FC = () => {
                                     )
                                 }}
                             </Field>
+                            <p>
+                                For delivery questions only
+                            </p>
+
                         </div>
                         <div className="form-group">
+                            <label>Address</label>
                             <Field name="address">
                                 {({form}: FieldProps<any>) => {
                                     return (
@@ -119,6 +127,7 @@ const Shipping: React.FC = () => {
                             </Field>
                         </div>
                         <div className="form-group">
+
                             <Field name="add_field">
                                 {({form}: FieldProps<any>) => {
                                     return (
@@ -154,54 +163,126 @@ const Shipping: React.FC = () => {
                                 }}
                             </Field>
                         </div>
-                        <div className="form-group">
-                            <Field name="country">
-                                {({form}: FieldProps<any>) => {
-                                    return (
-                                        <input
-                                            required
-                                            type="text"
-                                            name="country"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.country}
-                                            placeholder="Country"
-                                            className={form.touched.country && form.errors.country ? 'error' : ''}
-                                        />
-                                    )
-                                }}
-                            </Field>
-                        </div>
-                        <div className="form-group">
-                            <Field name="zip">
-                                {({form}: FieldProps<any>) => {
-                                    return (
-                                        <input
-                                            required
-                                            type="text"
-                                            name="zip"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.zip}
-                                            placeholder="ZIP"
-                                            className={form.touched.zip && form.errors.zip ? 'error' : ''}
-                                        />
-                                    )
-                                }}
-                            </Field>
+                        <div className="form_last-fields">
+                            <div className="form-group">
+                                <Field name="country">
+                                    {({form}: FieldProps<any>) => {
+                                        return (
+                                            <input
+                                                required
+                                                type="text"
+                                                name="country"
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.country}
+                                                placeholder="Country"
+                                                className={form.touched.country && form.errors.country ? 'error' : ''}
+                                            />
+                                        )
+                                    }}
+                                </Field>
+                            </div>
+                            <div className="form-group">
+                                <Field name="zip">
+                                    {({form}: FieldProps<any>) => {
+                                        return (
+                                            <input
+                                                required
+                                                type="text"
+                                                name="zip"
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.zip}
+                                                placeholder="ZIP"
+                                                className={form.touched.zip && form.errors.zip ? 'error' : ''}
+                                            />
+                                        )
+                                    }}
+                                </Field>
+                            </div>
                         </div>
 
                         <button
                             type="submit"
-                            className="btn btn-success"
+                            className="btn btn-next"
                             disabled={isSubmitting}
                         >
-
+                            Continue
                         </button>
-                    </form>
+                    </ShippingComponent>
                 )}
             </Formik>
         </Content>
     )
 }
 export default memo(Shipping);
+
+const ShippingComponent = styled.form`
+  &#form-shipping{
+    label{
+      font-size: 16px;
+      line-height: 18px; 
+      color: #5A1094; 
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+    
+    input[type=text]{
+      background: #FFFFFF;
+      border: 1px solid #DEDCDC;
+      box-sizing: border-box;
+      border-radius: 5px;
+      font-size: 16px;
+      line-height: 18px; 
+      color: #6B6B6B;
+      padding: 11px 15px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .day-time_field{
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+      input{
+        margin-bottom: 0;
+      }
+      p{
+        margin-bottom: 0;
+        font-size: 13px;
+        line-height: 12px; 
+        color: #777879;
+        margin-left: 10px;
+        min-width: 90px;
+        margin-right: 20px;
+      }
+    }
+    
+    .form_last-fields{
+      display: flex;
+      align-items: center;
+      
+      .form-group:first-child{
+        margin-right: 15px;
+      }
+    }
+    
+    button{
+      background: rgba(90, 16, 148, 0.8);
+      border: 1px solid rgba(67, 28, 93, 0.8);
+      box-sizing: border-box;
+      border-radius: 5px;
+      font-size: 16px;
+      line-height: 19px; 
+      text-align: center; 
+      color: #FFFFFF;
+      padding: 12px 57px;
+      cursor: pointer;
+      transition: all .3s;
+      &:hover{
+        background: rgba(90, 16, 148, 0.2);
+        border: 1px solid rgba(67, 28, 93, 0.2);
+      }
+    }
+  }
+`;
