@@ -4,6 +4,7 @@ import styled from "styled-components";
 import CartItems from '../Components/Cart/CartItems';
 import Shipping from "../pages/Shipping";
 import { Route } from 'react-router-dom';
+import BilingInformation from "../pages/BilingInformation";
 
 const Main: React.FC = () => {
 
@@ -12,7 +13,8 @@ const Main: React.FC = () => {
             <Header/>
             <ContentComponent className="content">
                 <div className="content_first">
-                    <Route exact path="/" component={Shipping}/>
+                    {/*<Route exact path="/" component={Shipping}/>*/}
+                    <Route exact path="/" component={BilingInformation}/>
                 </div>
                 <div className="content_second">
                     <CartItems/>
